@@ -45,11 +45,14 @@ namespace AspCoreServer
       services.AddMvc();
       services.AddNodeServices();
 
-      var connectionStringBuilder = new Microsoft.Data.Sqlite.SqliteConnectionStringBuilder { DataSource = "spa.db" };
-      var connectionString = connectionStringBuilder.ToString();
+      // var connectionStringBuilder = new Microsoft.Data.Sqlite.SqliteConnectionStringBuilder { DataSource = "OnlineCourseDB.db" };
+      // var connectionString = connectionStringBuilder.ToString();
+      //var connectionString = @"Server=(localdb)\mssqllocaldb;Database=EFGetStarted.AspNetCore.NewDb;Trusted_Connection=True;";
+      //services.AddDbContext<BloggingContext>(options =>
+      //    options.UseSqlite(connectionString));
 
-      services.AddDbContext<SpaDbContext>(options =>
-          options.UseSqlite(connectionString));
+      services.AddDbContext<BloggingContext>(options =>
+        options.UseSqlServer(Configuration.GetConnectionString("BloggingDatabase")));
 
       // Register the Swagger generator, defining one or more Swagger documents
       services.AddSwaggerGen(c =>
@@ -59,14 +62,14 @@ namespace AspCoreServer
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, SpaDbContext context)
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, BloggingContext context)
     {
       loggerFactory.AddConsole(Configuration.GetSection("Logging"));
       loggerFactory.AddDebug();
 
       app.UseStaticFiles();
 
-      DbInitializer.Initialize(context);
+    //  DbInitializer.Initialize(context);
 
       if (env.IsDevelopment())
       {

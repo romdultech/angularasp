@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace AspCoreServer.Models
 {
-    public class User
+    public class Blog
     {
         public int ID { get; set; }
         public string Name { get; set; }
@@ -13,7 +13,7 @@ namespace AspCoreServer.Models
         public DateTime EntryTime { get; set; }
 
         //Setting Default value
-        public User()
+        public Blog()
         {
             EntryTime = DateTime.Now;
         }

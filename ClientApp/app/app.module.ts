@@ -26,6 +26,7 @@ import { UserService } from './shared/user.service';
 // import { ConnectionResolver } from './shared/route.resolver';
 import { ORIGIN_URL } from '@nguniversal/aspnetcore-engine';
 import { TransferHttpModule } from '../modules/transfer-http/transfer-http.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 export function createTranslateLoader(http: HttpClient, baseHref) {
     // Temporary Azure hack
@@ -46,7 +47,8 @@ export function createTranslateLoader(http: HttpClient, baseHref) {
         HomeComponent,
         // ChatComponent,
         NotFoundComponent,
-        NgxBootstrapComponent
+        NgxBootstrapComponent,
+        DashboardComponent
     ],
     imports: [
         CommonModule,
@@ -100,6 +102,17 @@ export function createTranslateLoader(http: HttpClient, baseHref) {
                         { rel: 'alternate', hreflang: 'es', href: 'http://es.example.com/counter' }
                     ]
                 }
+            },
+            {
+              path: 'dashboard', component: DashboardComponent,
+              data: {
+                title: 'Dashboard',
+                meta: [{ name: 'dashboard', content: 'This is an dashboard page Description!' }],
+                links: [
+                  { rel: 'canonical', href: 'http://blogs.example.com/counter/something' },
+                  { rel: 'alternate', hreflang: 'es', href: 'http://es.example.com/counter' }
+                ]
+              }
             },
             {
                 path: 'users', component: UsersComponent,

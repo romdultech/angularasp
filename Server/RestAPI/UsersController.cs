@@ -1,4 +1,4 @@
-﻿using AspCoreServer.Data;
+using AspCoreServer.Data;
 using AspCoreServer.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -56,7 +56,7 @@ namespace AspCoreServer.Controllers
     }
 
     [HttpPost]
-    public async Task<IActionResult> Post([FromBody]User user)
+    public async Task<IActionResult> Post([FromBody]Blog user)
     {
       if (!string.IsNullOrEmpty(user.Name))
       {
@@ -71,7 +71,7 @@ namespace AspCoreServer.Controllers
     }
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> Put(int id, [FromBody]User userUpdateValue)
+    public async Task<IActionResult> Put(int id, [FromBody]Blog userUpdateValue)
     {
       try
       {

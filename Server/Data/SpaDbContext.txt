@@ -1,4 +1,4 @@
-﻿using AspCoreServer.Models;
+using AspCoreServer.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace AspCoreServer.Data
@@ -12,6 +12,6 @@ namespace AspCoreServer.Data
         }
 
         //List of DB Models - Add your DB models here
-        public DbSet<User> User { get; set; }
+        public DbSet<Blog> User { get; set; }
     }
 }
