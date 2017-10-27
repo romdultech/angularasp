@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Webpack (JavaScriptServices) with a few changes & updates
  * - This is to keep us inline with JSServices, and help those using that template to add things from this one
  *

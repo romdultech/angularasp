@@ -11,5 +11,6 @@ namespace AspCoreServer.Data
 
     public DbSet<Blog> Blogs { get; set; }
     public DbSet<Post> Posts { get; set; }
+    public DbSet<User> User { get; set; }
   }
 }

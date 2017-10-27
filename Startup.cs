@@ -52,7 +52,7 @@ namespace AspCoreServer
       //    options.UseSqlite(connectionString));
 
       services.AddDbContext<BloggingContext>(options =>
-        options.UseSqlServer(Configuration.GetConnectionString("BloggingDatabase")));
+        options.UseSqlServer(Configuration.GetConnectionString("Default")));
 
       // Register the Swagger generator, defining one or more Swagger documents
       services.AddSwaggerGen(c =>

@@ -1,5 +1,6 @@
 using AspCoreServer.Data;
 using AspCoreServer.Models;
+using AspCoreServer.Models.Bloggings;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -11,9 +12,9 @@ namespace AspCoreServer.Controllers
   [Route("api/[controller]")]
   public class UsersController : Controller
   {
-    private readonly SpaDbContext _context;
+    private readonly BloggingContext _context;
 
-    public UsersController(SpaDbContext context)
+    public UsersController(BloggingContext context)
     {
       _context = context;
     }
@@ -56,7 +57,7 @@ namespace AspCoreServer.Controllers
     }
 
     [HttpPost]
-    public async Task<IActionResult> Post([FromBody]Blog user)
+    public async Task<IActionResult> Post([FromBody]User user)
     {
       if (!string.IsNullOrEmpty(user.Name))
       {
@@ -71,7 +72,7 @@ namespace AspCoreServer.Controllers
     }
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> Put(int id, [FromBody]Blog userUpdateValue)
+    public async Task<IActionResult> Put(int id, [FromBody]User userUpdateValue)
     {
       try
       {
